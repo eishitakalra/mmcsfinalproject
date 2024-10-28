@@ -18,7 +18,7 @@ movie_database_small = movie_database.head(50)
 
 #Testing that it worked
 #print(ch_0_conversion_rates.head(5))
-print(movie_database_small)
+#print(movie_database_small)
 
 #create time_schedule
 time_schedule = (ch_A_schedule.iloc[:, :1])
@@ -28,5 +28,15 @@ time_schedule_small = time_schedule.head(204)
 
 #Pull movie, take run time and divide into time intervals
 
+#Pull movie, take run time and divide into time intervals
+for i in movie_database_small:
+  num_slots = movie_database_small['runtime_with_ads'] / 5
+
+#
+# let x_it = movie i runs in time slot t
+
+for i in movie_database_small:
+    for t in time_schedule_small: 
+        sum(x_it) == 204
 
 
