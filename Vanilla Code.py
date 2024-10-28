@@ -4,6 +4,7 @@ import numpy as np
 import math 
 import pandas as pd
 import scipy as sp
+from pulp import LpVariable, LpProblem, LpMaximize
 
 # read in files 
 ch_0_conversion_rates = pd.read_csv('/workspaces/mmcsfinalproject/channel_0_conversion_rates.csv')
@@ -39,15 +40,14 @@ for i in movie_database_small:
     for t in time_schedule_small: 
         sum(x_it) == 204
 
-from pulp import LpVariable, LpProblem, LpMaximize
 
 # Create a sample problem
-model = LpProblem("Optimization_Problem", LpMaximize)
+model = LpProblem("Optimisation_Problem", LpMaximize)
 
 # Define a decision variable x_i,t for indices i and t
 # Here, `lowBound` and `upBound` set the bounds if needed, `cat` defines the type (e.g., continuous)
-i_values = [1, 2, 3]  # Example values for i
-t_values = [1, 2]     # Example values for t
+i_values = [1:50:1]  
+t_values = time_schedule_small     
 
 # Create a dictionary of decision variables
 x = {(i, t): LpVariable(f"x_{i}_{t}", lowBound=0, cat="Continuous") for i in i_values for t in t_values}
