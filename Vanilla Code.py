@@ -50,5 +50,5 @@ i_values = [1:50:1]
 t_values = time_schedule_small     
 
 # Create a dictionary of decision variables
-x = {(i, t): LpVariable(f"x_{i}_{t}", lowBound=0, cat="Continuous") for i in i_values for t in t_values}
+x = {(i, t): LpVariable(f"x_{i}_{t}", lowBound=0, cat="Discrete") for i in i_values for t in t_values}
 
