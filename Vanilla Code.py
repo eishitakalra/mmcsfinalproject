@@ -22,6 +22,8 @@ print(movie_database_small)
 
 #create time_schedule
 time_schedule = (ch_A_schedule.iloc[:, :1])
+time_schedule_small = time_schedule.head(204)
+
 #print(time_schedule)
 
 #Pull movie, take run time and divide into time intervals
