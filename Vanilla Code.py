@@ -44,6 +44,8 @@ for i in movie_database_small:
 t_values = time_schedule_small['Date']     
 
 # Create a dictionary of decision variables
-x = {(i, t): 'add xp var here' for i in movie_database_small['title'] for t in t_values}
+x = {(i, t): LpVariable(f"x_{i}_{t}", lowBound=0, cat="Continuous") for i in i_values for t in t_values}
 
+x = {(i, t): LpVariable(f"x_{i}_{t}", lowBound=0, cat="Discrete") for i in i_values for t in t_values}
+x = {(i, t): 'add xp var here' for i in movie_database_small['title'] for t in t_values}
 print(x)
